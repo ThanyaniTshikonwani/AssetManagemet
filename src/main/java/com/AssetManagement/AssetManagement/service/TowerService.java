@@ -15,7 +15,7 @@ public class TowerService {
     private final TowerDao towerDao;
 
     @Autowired
-    public TowerService(@Qualifier("towerDao") TowerDao towerDao) {
+    public TowerService(@Qualifier("postgres") TowerDao towerDao) {
         this.towerDao = towerDao;
     }
 
