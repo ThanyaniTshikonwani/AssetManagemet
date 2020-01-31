@@ -3,8 +3,10 @@ package com.AssetManagement.AssetManagement.api;
 import com.AssetManagement.AssetManagement.model.Tower;
 import com.AssetManagement.AssetManagement.service.TowerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 
@@ -20,7 +22,7 @@ public class TowerController {
     }
 
     @PostMapping()
-    public  void addTower( @RequestBody Tower tower){
+    public  void addTower(@Valid @NonNull @RequestBody Tower tower){
         towerService.addTower(tower);
     }
 
@@ -41,7 +43,7 @@ public class TowerController {
     }
 
     @PutMapping(path = "{id}")
-    public void updateTowerById(@PathVariable("id") UUID id,@RequestBody Tower towerToUpdate){
+    public void updateTowerById(@PathVariable("id") UUID id,@Valid @NonNull @RequestBody Tower towerToUpdate){
         towerService.updateTower(id,towerToUpdate);
     }
 }

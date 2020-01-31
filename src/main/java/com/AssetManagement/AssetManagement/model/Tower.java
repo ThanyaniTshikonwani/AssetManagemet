@@ -2,6 +2,7 @@ package com.AssetManagement.AssetManagement.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import javax.validation.constraints.NotBlank;
 import java.util.UUID;
 
 public class Tower {
@@ -14,6 +15,7 @@ public class Tower {
     }
 
     private final UUID id;
+    @NotBlank
     private final String brand;
 
     public Tower(@JsonProperty("id") UUID id,@JsonProperty("name") String brand) {
