@@ -42,12 +42,12 @@ public class TestDataAcces implements TowerDao {
     }
 
     @Override
-    public int updateTowerById(UUID id, Tower tower) {
+    public int updateTowerById(UUID id, Tower towerUpdate) {
         return selectTowerById(id)
-                .map(t ->{
-                    int indexOfTowerToDelete= DB.indexOf(tower);
-                    if (indexOfTowerToDelete>=0){
-                        DB.set(indexOfTowerToDelete,tower);
+                .map(tower ->{
+                    int indexOfTowerToUpdate= DB.indexOf(tower);
+                    if (indexOfTowerToUpdate>=0){
+                        DB.set(indexOfTowerToUpdate,new Tower(id,towerUpdate.getBrand()));
                         return 1;
                     }
                     return 0;
