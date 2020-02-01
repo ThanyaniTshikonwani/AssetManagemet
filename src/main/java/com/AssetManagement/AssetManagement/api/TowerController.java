@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.UUID;
 
 
-@RequestMapping("api/v1/tower")
+@RequestMapping("home/tower")
 @RestController
 public class TowerController {
     private final TowerService towerService;
