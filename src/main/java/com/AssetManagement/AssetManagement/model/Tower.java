@@ -10,17 +10,19 @@ public class Tower {
         return id;
     }
 
-    public String getBrand() {
-        return brand;
-    }
+    @NotBlank
+    private final String brandName;
 
     private final UUID id;
-    @NotBlank
-    private final String brand;
 
-    public Tower(@JsonProperty("id") UUID id,@JsonProperty("name") String brand) {
+    public Tower(@JsonProperty("id") UUID id , @JsonProperty("name") String brand) {
         this.id = id;
-        this.brand = brand;
+        this.brandName = brand;
+
+    }
+
+    public String getBrandName() {
+        return brandName;
     }
 
 
